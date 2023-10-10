@@ -6,6 +6,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -25,8 +27,11 @@ public class IssueBook {
     private void before(){
         student = new Student("Cam", 3952879);
         book = new Book(9782593, "Resources Of Tomorrow", 0);
-        Date start = new Date(2022, 10, 20);
-        Date end = new Date(2025, 10, 20);
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2022, 10, 20);
+        Date start = calendar.getTime();
+        calendar.set(2025, 10, 20);
+        Date end = calendar.getTime();
         card = new LibraryCard(student, start, end, 8793952);
     }
 

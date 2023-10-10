@@ -108,7 +108,10 @@ public class LibraryCard {
             throw new IllegalBookIssueException("this card has already borrowed this book");
         }
         // Check that the library card is still valid
-            // TODO: impliment validity check
+        Date now = new Date();
+        if (ExpiryDate.after(now)){
+            return false;
+        }
         // Check that the book is available for borrowing
         if (!book.getStatus()) {
             return false;
