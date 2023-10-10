@@ -17,10 +17,23 @@ import java.util.Date;
  * Initialize the test object with "setting" method.
  */
 public class IssueBook {
-	
+	Student student;
+    Book book;
+    LibraryCard card;
+
 	@BeforeEach
-    private void before(){}
+    private void before(){
+        student = new Student("Cam", 3952879);
+        book = new Book(9782593, "Resources Of Tomorrow", 0);
+        Date start = new Date(2022, 10, 20);
+        Date end = new Date(2025, 10, 20);
+        card = new LibraryCard(student, start, end, 8793952);
+    }
 
     @AfterEach
-    private void after(){}
+    private void after(){
+        student = null;
+        book = null;
+        card = null;
+    }
 }
