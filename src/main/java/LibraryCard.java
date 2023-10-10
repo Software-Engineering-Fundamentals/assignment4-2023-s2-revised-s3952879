@@ -108,15 +108,28 @@ public class LibraryCard {
             throw new IllegalBookIssueException("this card has already borrowed this book");
         }
         // Check that the library card is still valid
+            // TODO: impliment validity check
         // Check that the book is available for borrowing
+        if (!book.getStatus()) {
+            return false;
+        }
         // The book should not be issued if there is pending fine associated with the library card
+        if (!(Double.compare(fine, 0.0) <= 0)) {
+            return false;
+        }
         // If the above constraints are met then issue the book to the student (the method should return true) and make 
         //    necessary update to relevant variables to reflect this change.
         // If the above constraints are not met, then the book is not issued and the method should return false.
         // If book to be borrowed is a high demand book then issue the book for 3 days. For a low demand book, 
         //    it can be issued for 15 days. 
-        
-    	return false;
+        if (book.getDemand() == 0) {
+            book.setDays(15);
+        } else if (book.getDemand() == 1) {
+            book.setDays(3);
+        }
+
+
+    	return true;
         
     }
 
