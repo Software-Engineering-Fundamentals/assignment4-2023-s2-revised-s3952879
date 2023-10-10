@@ -109,7 +109,7 @@ public class LibraryCard {
         }
         // Check that the library card is still valid
         Date now = new Date();
-        if (ExpiryDate.after(now)){
+        if (ExpiryDate.before(now)){
             return false;
         }
         // Check that the book is available for borrowing
