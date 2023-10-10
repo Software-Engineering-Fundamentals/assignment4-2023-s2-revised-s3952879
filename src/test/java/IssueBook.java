@@ -4,7 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Calendar;
@@ -40,5 +40,11 @@ public class IssueBook {
         student = null;
         book = null;
         card = null;
+    }
+
+    @Test
+    public void True_standardValues() throws IllegalBookIssueException{
+        boolean result = card.issueBook(book);
+        assertTrue(result);
     }
 }
