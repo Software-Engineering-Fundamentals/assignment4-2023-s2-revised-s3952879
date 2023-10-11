@@ -132,6 +132,7 @@ public class LibraryCard {
         }
 
         book.setStatus(true);
+        borrowed.add(book);
     	return true;
         
     }

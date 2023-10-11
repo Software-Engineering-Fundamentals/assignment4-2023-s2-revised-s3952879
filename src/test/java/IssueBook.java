@@ -60,4 +60,36 @@ public class IssueBook {
         boolean result = card.issueBook(book);
         assertTrue(result);
     }
+
+    @Test //testing if the card has exactly 4 books borrowed, this should return true
+    public void True_4borrowed() throws IllegalBookIssueException{
+        Book testBook1 = new Book(1, null, 0);
+        card.issueBook(testBook1);
+        Book testBook2 = new Book(2, null, 0);
+        card.issueBook(testBook2);
+        Book testBook3 = new Book(3, null, 0);
+        card.issueBook(testBook3);
+        Book testBook4 = new Book(4, null, 0);
+        card.issueBook(testBook4);
+
+        boolean result = card.issueBook(book);
+        assertTrue(result);
+    }
+
+    @Test //testing if the card has more than 4 books borrowed, this should return false
+    public void False_5borrowed() throws IllegalBookIssueException{
+        Book testBook1 = new Book(1, null, 0);
+        card.issueBook(testBook1);
+        Book testBook2 = new Book(2, null, 0);
+        card.issueBook(testBook2);
+        Book testBook3 = new Book(3, null, 0);
+        card.issueBook(testBook3);
+        Book testBook4 = new Book(4, null, 0);
+        card.issueBook(testBook4);
+        Book testBook5 = new Book(5, null, 0);
+        card.issueBook(testBook5);
+
+        boolean result = card.issueBook(book);
+        assertFalse(result);
+    }
 }
