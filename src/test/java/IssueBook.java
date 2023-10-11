@@ -92,11 +92,19 @@ public class IssueBook {
         assertFalse(result);
     }
 
-    @Test //testing adding the same book into the card twice, this should throw IllegalIssueException
-    public void TrowsIllegalIssueException_sameBookTwice() throws IllegalBookIssueException{
+    @Test //testing adding the same book into the card twice, this should throw IllegalBookIssueException
+    public void TrowsIllegalBookIssueException_sameBookTwice() throws IllegalBookIssueException{
         card.issueBook(book);
          assertThrows(IllegalBookIssueException.class, () -> {
             card.issueBook(book);
         });
+    }
+
+    @Test //testing attempting to issue a book while there is a fine on the card, this should return false
+    public void ReturnFalse_issueWithFine() throws IllegalBookIssueException {
+        double fine = 15.00;
+        card.setFine(fine);
+        boolean result = card.issueBook(book);
+        assertFalse(result);
     }
 }
