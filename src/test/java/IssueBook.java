@@ -96,7 +96,7 @@ public class IssueBook {
     @Test //testing adding the same book into the card twice, this should throw IllegalBookIssueException
     public void TrowsIllegalBookIssueException_sameBookTwice() throws IllegalBookIssueException{
         card.issueBook(book);
-         assertThrows(IllegalBookIssueException.class, () -> {
+        assertThrows(IllegalBookIssueException.class, () -> {
             card.issueBook(book);
         });
     }
