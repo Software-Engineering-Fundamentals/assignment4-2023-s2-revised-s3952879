@@ -98,10 +98,6 @@ public class Book {
         this.status = status;
     }
 
-    public void setDemand(boolean status) {
-        this.status = status;
-    }
-
 
 
 
