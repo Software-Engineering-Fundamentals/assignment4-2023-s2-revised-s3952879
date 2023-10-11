@@ -125,4 +125,18 @@ public class IssueBook {
         boolean result = card.issueBook(book);
         assertFalse(result);
     }
+
+    @Test //testing the day count after issuing a book not in demand, should have the value 15
+    public void Equal15_issueLowDemand() throws IllegalBookIssueException{
+        book.setDemand(0);
+        card.issueBook(book);
+        assertEquals(15, book.getDays());
+    }
+
+    @Test //testing the day count after issuing a book in demand, should have the value 3
+    public void Equal3_issuehighDemand() throws IllegalBookIssueException{
+        book.setDemand(1);
+        card.issueBook(book);
+        assertEquals(3, book.getDays());
+    }
 }
