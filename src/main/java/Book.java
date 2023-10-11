@@ -94,6 +94,10 @@ public class Book {
         return status;
     }
 
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
     public void setDemand(boolean status) {
         this.status = status;
     }

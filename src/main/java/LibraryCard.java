@@ -131,7 +131,7 @@ public class LibraryCard {
             book.setDays(3);
         }
 
-
+        book.setStatus(true);
     	return true;
         
     }

@@ -42,9 +42,15 @@ public class IssueBook {
         card = null;
     }
 
-    @Test
+    @Test //test under tthe default values as given in before(), this should return true
     public void True_standardValues() throws IllegalBookIssueException{
         boolean result = card.issueBook(book);
         assertTrue(result);
+    }
+
+    @Test //testing if the card has less than 4 books borrowed, this should return true
+    public void True_3borrowed() throws IllegalBookIssueException{
+        Book testBook = new Book(0, null, 0);
+        
     }
 }
