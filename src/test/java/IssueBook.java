@@ -1,5 +1,6 @@
 
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.annotation.Testable;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -106,6 +107,13 @@ public class IssueBook {
         calendar.set(2023, 10, 5);
         Date end = calendar.getTime();
         card.setExpiryDate(end);
+        boolean result = card.issueBook(book);
+        assertFalse(result);
+    }
+
+    @Test //testing attempting to issue an unavailable book, this should return false
+    public void ReturnFalse_bookUnavailable() throws IllegalBookIssueException{
+        book.setStatus(false);
         boolean result = card.issueBook(book);
         assertFalse(result);
     }

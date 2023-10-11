@@ -131,7 +131,7 @@ public class LibraryCard {
             book.setDays(3);
         }
 
-        book.setStatus(true);
+        book.setStatus(false);
         borrowed.add(book);
     	return true;
         
