@@ -100,6 +100,16 @@ public class IssueBook {
         });
     }
 
+    @Test //testing issuing a book while the Expiry date is before the current date
+    public void ReturnFalse_issueExpiredCard() throws IllegalBookIssueException{
+         Calendar calendar = Calendar.getInstance();
+        calendar.set(2023, 10, 5);
+        Date end = calendar.getTime();
+        card.setExpiryDate(end);
+        boolean result = card.issueBook(book);
+        assertFalse(result);
+    }
+
     @Test //testing attempting to issue a book while there is a fine on the card, this should return false
     public void ReturnFalse_issueWithFine() throws IllegalBookIssueException {
         double fine = 15.00;
