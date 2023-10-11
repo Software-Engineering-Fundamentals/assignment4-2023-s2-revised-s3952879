@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -91,5 +90,13 @@ public class IssueBook {
 
         boolean result = card.issueBook(book);
         assertFalse(result);
+    }
+
+    @Test //testing adding the same book into the card twice, this should throw IllegalIssueException
+    public void TrowsIllegalIssueException_sameBookTwice() throws IllegalBookIssueException{
+        card.issueBook(book);
+         assertThrows(IllegalBookIssueException.class, () -> {
+            card.issueBook(book);
+        });
     }
 }
