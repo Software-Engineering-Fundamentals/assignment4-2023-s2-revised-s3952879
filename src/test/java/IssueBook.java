@@ -42,13 +42,13 @@ public class IssueBook {
     }
 
     @Test //test under tthe default values as given in before(), this should return true
-    public void True_standardValues() throws IllegalBookIssueException{
+    public void ReturnTrue_standardValues() throws IllegalBookIssueException{
         boolean result = card.issueBook(book);
         assertTrue(result);
     }
 
     @Test //testing if the card has less than 4 books borrowed, this should return true
-    public void True_3borrowed() throws IllegalBookIssueException{
+    public void ReturnTrue_3borrowed() throws IllegalBookIssueException{
         Book testBook1 = new Book(1, null, 0);
         card.issueBook(testBook1);
         Book testBook2 = new Book(2, null, 0);
@@ -61,7 +61,7 @@ public class IssueBook {
     }
 
     @Test //testing if the card has exactly 4 books borrowed, this should return true
-    public void True_4borrowed() throws IllegalBookIssueException{
+    public void ReturnTrue_4borrowed() throws IllegalBookIssueException{
         Book testBook1 = new Book(1, null, 0);
         card.issueBook(testBook1);
         Book testBook2 = new Book(2, null, 0);
@@ -76,7 +76,7 @@ public class IssueBook {
     }
 
     @Test //testing if the card has more than 4 books borrowed, this should return false
-    public void False_5borrowed() throws IllegalBookIssueException{
+    public void ReturnFalse_5borrowed() throws IllegalBookIssueException{
         Book testBook1 = new Book(1, null, 0);
         card.issueBook(testBook1);
         Book testBook2 = new Book(2, null, 0);
