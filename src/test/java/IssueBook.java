@@ -104,7 +104,7 @@ public class IssueBook {
     @Test //testing issuing a book while the Expiry date is before the current date
     public void ReturnFalse_issueExpiredCard() throws IllegalBookIssueException{
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2023, 10, 5);
+        calendar.set(2023, 9, 5);
         Date end = calendar.getTime();
         card.setExpiryDate(end);
         boolean result = card.issueBook(book);
