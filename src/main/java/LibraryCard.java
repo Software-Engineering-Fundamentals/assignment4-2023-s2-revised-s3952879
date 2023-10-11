@@ -96,33 +96,41 @@ public class LibraryCard {
      */
 
     public boolean issueBook(Book book) throws IllegalBookIssueException{
+
+        // If the constraints are met then issue the book to the student (the method should return true) and make 
+        //    necessary update to relevant variables to reflect this change.
+        // If the constraints are not met, then the book is not issued and the method should return false.
     
         // Get the number of books borrowed by the student on the library card
         int numBorrowed = borrowed.size();
+
         // The number of books borrowed should not be greater than 4
         if (numBorrowed > 4) {
             return false;
         }
+
         // Throws an exception if the same book is already issues on the library card
-        if (borrowed.contains(book)) {
+        if (borrowed.contains(book)) { //if the book being issued exists in this card's borrowed list already, throw IllegalBookIssueException
             throw new IllegalBookIssueException("this card has already borrowed this book");
         }
+
         // Check that the library card is still valid
-        Date now = new Date();
-        if (ExpiryDate.before(now)){
+        Date now = new Date();  //get current date
+        if (ExpiryDate.before(now)){ //if Expiry date is earlier than current date, return false
             return false;
         }
+        
         // Check that the book is available for borrowing
-        if (!book.getStatus()) {
+        if (!book.getStatus()) { //if the status is false (meaning unavailabe) return false
             return false;
         }
+
         // The book should not be issued if there is pending fine associated with the library card
         if (!(Double.compare(fine, 0.0) <= 0)) {
             return false;
         }
-        // If the above constraints are met then issue the book to the student (the method should return true) and make 
-        //    necessary update to relevant variables to reflect this change.
-        // If the above constraints are not met, then the book is not issued and the method should return false.
+
+        
         // If book to be borrowed is a high demand book then issue the book for 3 days. For a low demand book, 
         //    it can be issued for 15 days. 
         if (book.getDemand() == 0) {
@@ -131,8 +139,9 @@ public class LibraryCard {
             book.setDays(3);
         }
 
-        book.setStatus(false);
-        borrowed.add(book);
+        book.setStatus(false); //update status to show it is now bookand and unavailable
+        borrowed.add(book); //add the book onto this car's borrowed list
+
     	return true;
         
     }
