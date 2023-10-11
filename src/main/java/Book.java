@@ -82,7 +82,7 @@ public class Book {
     }
 
 
-    public int days() {
+    public int getDays() {
         return days;
     }
 
