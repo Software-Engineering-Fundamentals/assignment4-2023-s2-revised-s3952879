@@ -50,7 +50,14 @@ public class IssueBook {
 
     @Test //testing if the card has less than 4 books borrowed, this should return true
     public void True_3borrowed() throws IllegalBookIssueException{
-        Book testBook = new Book(0, null, 0);
-        
+        Book testBook1 = new Book(1, null, 0);
+        card.issueBook(testBook1);
+        Book testBook2 = new Book(2, null, 0);
+        card.issueBook(testBook2);
+        Book testBook3 = new Book(3, null, 0);
+        card.issueBook(testBook3);
+
+        boolean result = card.issueBook(book);
+        assertTrue(result);
     }
 }
