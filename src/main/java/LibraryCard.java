@@ -110,8 +110,11 @@ public class LibraryCard {
         }
 
         // Throws an exception if the same book is already issues on the library card
-        if (borrowed.contains(book)) { //if the book being issued exists in this card's borrowed list already, throw IllegalBookIssueException
-            throw new IllegalBookIssueException("this card has already borrowed this book");
+        int ID = book.getID();
+        for (Book books : borrowed) {
+            if (books.getID() == ID) { //if the book being issued exists in this card's borrowed list already, throw IllegalBookIssueException
+                throw new IllegalBookIssueException("this card has already borrowed this book");
+            }
         }
 
         // Check that the library card is still valid
