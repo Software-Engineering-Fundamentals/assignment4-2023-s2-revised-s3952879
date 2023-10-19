@@ -14,7 +14,7 @@ public class Department {
     
     private ArrayList<String> temp1 = new ArrayList<String>();
 
-    private ArrayList<int> employee = new ArrayList<int>();
+    private ArrayList<Integer> employee = new ArrayList<Integer>();
 
     
     private int ID2;
@@ -32,21 +32,13 @@ public class Department {
     
     public boolean checkEmployee(int eID) {
 
-	    int p=0;
-        for (int i = 0; i < this.employee.size(); i++){
-            check=this.employee.get(i);
-                if (check==eID) {
-                    p=1;
-                }
-        }
-
-        if (p==1){   
-            System.out.println("Employee exists");
+        if (employee.contains(eID)) {   //If the list of emloyee IDs contains the target employee
+            System.out.println("Employee exists");  //return the true result and message
             return true;
-        } else {       
-            System.out.println("Employee doesn't exists");
-            return false;
         }
+            //If the ID is not in this object, return false result and message
+        System.out.println("Employee doesn't exists");
+        return false;    
     }
 
     
